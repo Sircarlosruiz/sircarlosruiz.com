@@ -1,9 +1,14 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "exclude": ["dist", "public"],
   "compilerOptions": {
+    "strictNullChecks": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
+      "@icons/*": ["./src/components/icons/*"],
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"]
     },

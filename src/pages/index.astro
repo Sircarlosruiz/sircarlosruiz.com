@@ -1,18 +1,52 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from "@layouts/Layout.astro";
+import Navbar from "@components/Navbar.astro";
+import Hero from "@components/Hero.astro";
+import ProjectCard from "@components/ProjectCard.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const featuredProjects = [
+  {
+    title: "AI Assistant for Support Tickets",
+    description: "RAG-based system that classifies and routes tickets using APQC and reduces handling time.",
+    tags: ["AI Systems", "RAG", "Automation"],
+    href: "/projects/ai-support-assistant",
+  },
+  {
+    title: "Demand Forecasting Model",
+    description: "Time-series econometric model to forecast product demand and optimize inventory.",
+    tags: ["Econometrics", "Time Series", "Forecasting"],
+    href: "/projects/demand-forecasting",
+  },
+  {
+    title: "Decision Dashboard for Executives",
+    description: "Integrated KPIs, macro indicators, and ML scoring for strategic decisions.",
+    tags: ["ML", "Dashboards", "Decision Intelligence"],
+    href: "/projects/decision-dashboard",
+  },
+];
 ---
 
-<html>
-  <body>
-    <h1>Hello, world!</h1>
-  </body>
-</html>
-<style>
-  h1 {
-    color: orange;
-  }
-</style>
+<BaseLayout>
+  <Fragment slot="navbar">
+    <Navbar />
+  </Fragment>
+
+  <Hero />
+
+  <section class="mt-12 space-y-4">
+    <h2 class="text-sm font-semibold text-slate-200 uppercase tracking-[0.18em]">
+      Featured Projects
+    </h2>
+    <div class="grid gap-4 md:grid-cols-3">
+      {featuredProjects.map((p) => (
+        <ProjectCard {...p} />
+      ))}
+    </div>
+  </section>
+
+  <div slot="footer" class="max-w-5xl mx-auto px-4 py-6 flex justify-between text-[10px] text-slate-500">
+    <span>© {new Date().getFullYear()} Carlos Ruiz</span>
+    <span>AI · ML · Econometrics · Systems Engineering</span>
+  </div>
+</BaseLayout>
+
