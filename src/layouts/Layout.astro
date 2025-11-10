@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
@@ -19,7 +20,7 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 	</head>
-	<body class="bg-slate-950 text-slate-50 mx-auto px-4 py-10">
+	<body class="bg-slate-950 text-slate-50 mx-auto px-4 py-10 grid place-content-center ">
     <header>
       <slot name="navbar"/>
     </header>
