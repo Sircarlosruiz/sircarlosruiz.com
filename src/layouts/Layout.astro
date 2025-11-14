@@ -20,7 +20,7 @@ const {
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 	</head>
-	<body class="bg-slate-950 text-slate-50 mx-auto px-4 py-10 grid place-content-center ">
+	<body class="bg-slate-950 text-slate-50 px-4 py-10 grid place-content-center">
     <header>
       <slot name="navbar"/>
     </header>
@@ -36,8 +36,8 @@ const {
 <style>
 	html,
 	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
+    margin: 0;
 	}
 </style>
